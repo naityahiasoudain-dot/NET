@@ -1,0 +1,646 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #6c5ce7;
+  --secondary: #fd79a8;
+  --accent: #fdcb6e;
+  --success: #00b894;
+  --info: #0984e3;
+  --bg: #f0f4ff;
+  --card-bg: #ffffff;
+  --text: #2d3436;
+  --text-light: #636e72;
+  --shadow: 0 8px 30px rgba(108, 92, 231, 0.12);
+  --shadow-hover: 0 12px 40px rgba(108, 92, 231, 0.2);
+  --radius: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Fredoka', 'Arial', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(108, 92, 231, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(253, 121, 168, 0.05) 0%, transparent 50%);
+}
+
+/* ===== Header & Navigation ===== */
+header {
+  background: linear-gradient(135deg, var(--primary), #a29bfe);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(108, 92, 231, 0.3);
+  min-height: 70px;
+}
+
+.logo h2 {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.logo h2:hover {
+  transform: scale(1.05);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.9);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+
+nav ul li a:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ===== Hero Section ===== */
+#home {
+  text-align: center;
+  padding: 80px 40px 60px;
+  background: linear-gradient(135deg, #6c5ce7 0%, #fd79a8 50%, #fdcb6e 100%);
+  margin: 0;
+  border-radius: 0 0 40px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+#home::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: heroShine 8s ease-in-out infinite;
+}
+
+@keyframes heroShine {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(10%, 10%); }
+}
+
+#home h2 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+#home p {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.9);
+  max-width: 700px;
+  margin: 10px auto;
+  line-height: 1.8;
+  position: relative;
+}
+
+.hero-emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 10px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* ===== Section Common ===== */
+section {
+  padding: 50px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section > h2 {
+  font-size: 2.2rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+section > h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+  margin: 10px auto 0;
+}
+
+section > p {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== Lesson Cards ===== */
+.lesson-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 35px 30px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.lesson-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.lesson-card h2 {
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.lesson-card h3 {
+  color: var(--secondary);
+  font-size: 1.3rem;
+  margin: 25px 0 15px;
+  text-align: center;
+}
+
+.lesson-card > p {
+  color: var(--text-light);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ===== Vocabulary Grid ===== */
+.vocab-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+.vocab-grid li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #f8f9ff, #fff);
+  border: 2px solid #eef0ff;
+  border-radius: 16px;
+  padding: 12px 24px 12px 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.25s;
+  min-width: 120px;
+  box-shadow: 0 2px 8px rgba(108, 92, 231, 0.08);
+}
+
+.vocab-grid li:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.2);
+  border-color: var(--primary);
+}
+
+.vocab-grid li:active {
+  transform: scale(0.97);
+}
+
+.color-dot {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.vocab-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #f0f0f0;
+}
+
+.number-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #a29bfe);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.vocab-label {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary), #a29bfe);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  min-width: 80px;
+  text-align: center;
+}
+
+.season-badge {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.sound-icon {
+  font-size: 1.3rem;
+  transition: transform 0.3s;
+}
+
+.vocab-grid li:hover .sound-icon {
+  transform: scale(1.2);
+}
+
+/* ===== Days / Months / Rooms Lists ===== */
+.mini-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+
+.mini-grid li {
+  background: linear-gradient(135deg, var(--primary), #a29bfe);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+}
+
+.mini-grid li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.35);
+}
+
+/* ===== Games Section ===== */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.game-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--secondary);
+}
+
+.game-card .game-icon {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.game-card h3 {
+  color: var(--primary);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.game-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* ===== Exercises Section ===== */
+.exercises-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.exercise-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.exercise-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--success);
+}
+
+.exercise-card .ex-icon {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.exercise-card h3 {
+  color: var(--info);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.exercise-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* ===== Practice Section ===== */
+.practice-box {
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  border-radius: var(--radius);
+  padding: 30px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.practice-box p {
+  color: #5a3e2b;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+/* ===== Interactive Game Area ===== */
+.game-area {
+  display: none;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 30px;
+  margin-top: 25px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.game-area.active {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+
+.game-area h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.game-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.game-option {
+  padding: 15px 35px;
+  border: 3px solid #eef0ff;
+  border-radius: 16px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+  background: #fff;
+  min-width: 100px;
+}
+
+.game-option:hover {
+  border-color: var(--primary);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.2);
+}
+
+.game-option.correct {
+  background: var(--success);
+  color: #fff;
+  border-color: var(--success);
+}
+
+.game-option.wrong {
+  background: #ff7675;
+  color: #fff;
+  border-color: #ff7675;
+}
+
+.game-score {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 15px 0;
+}
+
+.game-btn {
+  background: linear-gradient(135deg, var(--primary), #a29bfe);
+  color: #fff;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.game-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.3);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: linear-gradient(135deg, var(--primary), #2d3436);
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 25px 40px;
+  margin-top: 50px;
+}
+
+footer p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lesson-card {
+  animation: fadeIn 0.6s ease;
+}
+
+/* ===== Scroll to Top ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+  transition: all 0.3s;
+  display: none;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-top.visible {
+  display: flex;
+}
+
+.scroll-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+}
+
+/* ===== Toast Notification ===== */
+.toast {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  background: var(--card-bg);
+  padding: 16px 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+  transform: translateX(120%);
+  transition: transform 0.4s ease;
+  z-index: 1001;
+  border-left: 5px solid var(--primary);
+  font-family: 'Fredoka', sans-serif;
+}
+
+.toast.show {
+  transform: translateX(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 10px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+
+  #home {
+    padding: 50px 20px 40px;
+  }
+
+  #home h2 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 30px 20px;
+  }
+
+  section > h2 {
+    font-size: 1.7rem;
+  }
+
+  .vocab-grid li {
+    padding: 10px 16px 10px 12px;
+    font-size: 1rem;
+    min-width: 100px;
+  }
+
+  .games-grid,
+  .exercises-grid {
+    grid-template-columns: 1fr;
+  }
+}
